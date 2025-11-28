@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stranger Things Season 5 Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background: #000;
+            color: #e00b0b;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .warning {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: pulse 3s infinite;
+            border: 3px solid #e00b0b;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px #e00b0b;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px #e00b0b; }
+            50% { box-shadow: 0 0 40px #e00b0b; }
+            100% { box-shadow: 0 0 20px #e00b0b; }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #e00b0b;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: #fff;
+            text-shadow: 0 0 5px #e00b0b;
+            border-bottom: 2px solid #e00b0b;
+            padding-bottom: 0.5rem;
+        }
+        
+        .spoiler-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .spoiler-card {
+            background: rgba(20, 0, 0, 0.8);
+            border: 2px solid #e00b0b;
+            padding: 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .spoiler-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(224, 11, 11, 0.5);
+        }
+        
+        .spoiler-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .spoiler-content {
+            display: none;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ff6b6b;
+        }
+        
+        .reveal-btn {
+            background: #e00b0b;
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .reveal-btn:hover {
+            background: #ff1a1a;
+            transform: scale(1.05);
+        }
+        
+        .final-reveal {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            border: 3px solid #e00b0b;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+        }
+        
+        .final-reveal h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .final-reveal p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #ff00ff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 74px, 0); }
+            5% { clip: rect(76px, 9999px, 41px, 0); }
+            10% { clip: rect(54px, 9999px, 25px, 0); }
+            15% { clip: rect(9px, 9999px, 95px, 0); }
+            20% { clip: rect(64px, 9999px, 58px, 0); }
+            25% { clip: rect(26px, 9999px, 36px, 0); }
+            30% { clip: rect(85px, 9999px, 10px, 0); }
+            35% { clip: rect(59px, 9999px, 61px, 0); }
+            40% { clip: rect(93px, 9999px, 86px, 0); }
+            45% { clip: rect(11px, 9999px, 14px, 0); }
+            50% { clip: rect(19px, 9999px, 53px, 0); }
+            55% { clip: rect(47px, 9999px, 27px, 0); }
+            60% { clip: rect(2px, 9999px, 83px, 0); }
+            65% { clip: rect(71px, 9999px, 67px, 0); }
+            70% { clip: rect(38px, 9999px, 30px, 0); }
+            75% { clip: rect(81px, 9999px, 78px, 0); }
+            80% { clip: rect(23px, 9999px, 97px, 0); }
+            85% { clip: rect(65px, 9999px, 5px, 0); }
+            90% { clip: rect(50px, 9999px, 44px, 0); }
+            95% { clip: rect(88px, 9999px, 21px, 0); }
+            100% { clip: rect(7px, 9999px, 90px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(6px, 9999px, 23px, 0); }
+            20% { clip: rect(33px, 9999px, 49px, 0); }
+            25% { clip: rect(90px, 9999px, 100px, 0); }
+            30% { clip: rect(13px, 9999px, 45px, 0); }
+            35% { clip: rect(68px, 9999px, 95px, 0); }
+            40% { clip: rect(27px, 9999px, 59px, 0); }
+            45% { clip: rect(81px, 9999px, 8px, 0); }
+            50% { clip: rect(44px, 9999px, 32px, 0); }
+            55% { clip: rect(19px, 9999px, 70px, 0); }
+            60% { clip: rect(97px, 9999px, 11px, 0); }
+            65% { clip: rect(5px, 9999px, 87px, 0); }
+            70% { clip: rect(62px, 9999px, 54px, 0); }
+            75% { clip: rect(28px, 9999px, 39px, 0); }
+            80% { clip: rect(71px, 9999px, 16px, 0); }
+            85% { clip: rect(40px, 9999px, 63px, 0); }
+            90% { clip: rect(85px, 9999px, 26px, 0); }
+            95% { clip: rect(22px, 9999px, 93px, 0); }
+            100% { clip: rect(58px, 9999px, 77px, 0); }
+        }
+        
+        .flicker {
+            animation: flicker 0.15s infinite;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            5% { opacity: 0.5; }
+            10% { opacity: 0.6; }
+            15% { opacity: 0.9; }
+            20% { opacity: 0.4; }
+            25% { opacity: 0.8; }
+            30% { opacity: 0.6; }
+            35% { opacity: 0.9; }
+            40% { opacity: 0.3; }
+            45% { opacity: 0.7; }
+            50% { opacity: 0.5; }
+            55% { opacity: 0.9; }
+            60% { opacity: 0.4; }
+            65% { opacity: 0.8; }
+            70% { opacity: 0.5; }
+            75% { opacity: 0.9; }
+            80% { opacity: 0.6; }
+            85% { opacity: 0.8; }
+            90% { opacity: 0.5; }
+            95% { opacity: 0.7; }
+            100% { opacity: 0.9; }
+        }
+        
+        .countdown {
+            font-size: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #fff;
+        }
+        
+        .gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .gate-text {
+            font-size: 3rem;
+            color: #e00b0b;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #e00b0b;
+        }
+        
+        .enter-btn {
+            background: #e00b0b;
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-family: inherit;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .enter-btn:hover {
+            background: #ff1a1a;
+            transform: scale(1.1);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .revealed-count {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="gate" id="gate">
+        <div class="gate-text">ENTERING THE UPSIDE DOWN</div>
+        <div class="gate-text">IGT Interview Preparation Kit</div>
+        <button class="enter-btn" id="enterBtn">ENTER IF YOU DARE</button>
+        <div class="warning" style="margin-top: 2rem; max-width: 600px;">
+            <h3>INTERVIEW PREPARATION KIT</h3>
+            <p>Proceed only if you want to complete all your lessons fast</p>
+        </div>
+    </div>
+    
+    <div class="container hidden" id="mainContent">
+        <div class="warning">
+            <h1 class="glitch" data-text="SPOILER ALERT">SPOILER ALERT</h1>
+            <p>You've entered the Upside Down of spoilers. There's no going back now.</p>
+            <div class="countdown" id="countdown">Revealing all spoilers in: 10</div>
+        </div>
+        
+        <div class="revealed-count">
+            Spoilers revealed: <span id="revealedCount">0</span>/10
+        </div>
+        
+        <div class="spoiler-grid">
+            <div class="spoiler-card" data-id="1">
+                <h3>Vecna's First Encounter</h3>
+                <div class="spoiler-content">
+                    <p>The flashback reveals Vecna first met Will in Season 1 when the Demogorgon captured him. Vecna declared "We can begin" and used vine-like tendrils to pump particles into Will, creating their connection.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="2">
+                <h3>Will's New Powers</h3>
+                <div class="spoiler-content">
+                    <p>Will discovers he can tap into Vecna's powers. He uses telekinetic abilities to stop and kill Demogorgons attacking his friends, complete with a signature nosebleed.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="3">
+                <h3>Kali's Return</h3>
+                <div class="spoiler-content">
+                    <p>Eleven's "sister" Kali (Eight) is back! The military is holding her prisoner in the Upside Down lab. Her head is shaved and she's restrained, possibly being forced to help locate Eleven.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="4">
+                <h3>Max & Holly's Fate</h3>
+                <div class="spoiler-content">
+                    <p>Max is stuck in Henry Creel's mindscape where she finds Holly after she's taken by Vecna. Max reveals she's "dead but came back to life" and they need to work together to escape.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="5">
+                <h3>Vecna's Master Plan</h3>
+                <div class="spoiler-content">
+                    <p>Vecna is kidnapping children (like Holly) because they're "weak in body and mind." He plans to break them down and use them as "perfect vessels" for his world takeover. Will was his first test subject.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="6">
+                <h3>Wheeler Family Attack</h3>
+                <div class="spoiler-content">
+                    <p>A Demogorgon attacks the Wheeler home, nearly killing Ted and Karen while abducting Holly. Ted ends up in a coma, while Karen helps Nancy and Mike after surgery.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="7">
+                <h3>Dustin's Downfall</h3>
+                <div class="spoiler-content">
+                    <p>Dustin is deeply affected by Eddie's death. He wears Hellfire shirts and plans to restart the club, but gets beaten up by bullies and lies to his friends about his injuries.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="8">
+                <h3>Love Triangle Intensifies</h3>
+                <div class="spoiler-content">
+                    <p>Jonathan plans to propose to Nancy and already has a ring. But Steve isn't over her and points out how miserable both have been in their relationship, suggesting they might not end up together.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="9">
+                <h3>Hopper's Heartbreak</h3>
+                <div class="spoiler-content">
+                    <p>Hopper has new flashbacks about his daughter Sara, revealing the doctors thought she would survive because she was fighting so hard. Her death makes him extra protective of Eleven.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+            
+            <div class="spoiler-card" data-id="10">
+                <h3>Military Hunt for Eleven</h3>
+                <div class="spoiler-content">
+                    <p>Dr. Kay (Linda Hamilton) is pushing the military to find Eleven, stating "I need the girl." They have a special lab in the Upside Down and are using specimens like vine-like tendrils in their research.</p>
+                </div>
+                <button class="reveal-btn">Reveal Spoiler</button>
+            </div>
+        </div>
+        
+        <div class="final-reveal" id="finalReveal">
+            <h2 class="flicker">YOU'VE BEEN COMPLETELY SPOILED!</h2>
+            <p>Every major plot point of Stranger Things Season 5 Volume 1 has been revealed.</p>
+            <p>There's no unseeing this now. The mystery is gone. The surprises are ruined.</p>
+            <p>and you have been fooled Ashoo! Hehe.</p>
+            <div style="margin-top: 2rem; font-size: 3rem;">😈</div>
+        </div>
+    </div>
+
+    <script>
+        // Create particle effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = '#e00b0b';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.opacity = Math.random() * 0.5 + 0.2;
+                particle.style.boxShadow = '0 0 10px #e00b0b';
+                
+                const animationDuration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${animationDuration}s infinite linear`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Add CSS for floating animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0% { transform: translate(0, 0) rotate(0deg); }
+                    25% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(90deg); }
+                    50% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(180deg); }
+                    75% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(270deg); }
+                    100% { transform: translate(0, 0) rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Gate entrance
+        document.getElementById('enterBtn').addEventListener('click', function() {
+            document.getElementById('gate').classList.add('hidden');
+            document.getElementById('mainContent').classList.remove('hidden');
+            
+            // Start countdown to auto-reveal all spoilers
+            startCountdown();
+        });
+        
+        // Countdown to auto-reveal all spoilers
+        function startCountdown() {
+            let count = 10;
+            const countdownElement = document.getElementById('countdown');
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = `Revealing all spoilers in: ${count}`;
+                count--;
+                
+                if (count < 0) {
+                    clearInterval(countdownInterval);
+                    revealAllSpoilers();
+                }
+            }, 1000);
+        }
+        
+        // Manual spoiler reveal
+        document.querySelectorAll('.reveal-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.parentElement;
+                const content = card.querySelector('.spoiler-content');
+                const id = card.getAttribute('data-id');
+                
+                content.style.display = 'block';
+                this.style.display = 'none';
+                
+                // Update revealed count
+                updateRevealedCount();
+                
+                // Add glitch effect to the revealed content
+                card.classList.add('flicker');
+                setTimeout(() => {
+                    card.classList.remove('flicker');
+                }, 1000);
+            });
+        });
+        
+        // Update revealed count
+        function updateRevealedCount() {
+            const revealed = document.querySelectorAll('.spoiler-content[style*="display: block"]').length;
+            document.getElementById('revealedCount').textContent = revealed;
+            
+            if (revealed === 10) {
+                showFinalReveal();
+            }
+        }
+        
+        // Auto-reveal all spoilers
+        function revealAllSpoilers() {
+            document.querySelectorAll('.spoiler-content').forEach(content => {
+                content.style.display = 'block';
+            });
+            document.querySelectorAll('.reveal-btn').forEach(button => {
+                button.style.display = 'none';
+            });
+            document.querySelectorAll('.spoiler-card').forEach(card => {
+                card.classList.add('flicker');
+            });
+            
+            updateRevealedCount();
+            showFinalReveal();
+        }
+        
+        // Show final reveal message
+        function showFinalReveal() {
+            document.getElementById('finalReveal').style.display = 'block';
+            
+            // Add intense flickering effect
+            const intenseFlicker = setInterval(() => {
+                document.body.classList.toggle('flicker');
+            }, 100);
+            
+            setTimeout(() => {
+                clearInterval(intenseFlicker);
+                document.body.classList.remove('flicker');
+            }, 3000);
+        }
+        
+        // Initialize
+        createParticles();
+    </script>
+</body>
+</html>
