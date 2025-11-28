@@ -1,6 +1,6 @@
 # 🚨 STRANGER THINGS SEASON 5 SPOILER BOMB 🚨
 
-The ultimate prank website designed to completely ruin Stranger Things Season 5 for unsuspecting friends. Deploy and share for maximum devastation.
+The ultimate prank website designed to completely ruin Stranger Things Season 5 for unsuspecting friends. Deploy and share for maximum devastation..
 
 ## Features:
 - 10 major Season 5 Volume 1 spoilers
